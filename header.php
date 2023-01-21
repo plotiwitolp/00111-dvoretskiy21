@@ -38,287 +38,249 @@
 
 <body <?php body_class(); ?>>
     <div class="wrapper">
-
-        <?php // esc_html_e( 'Skip to content', 'transportex' ); 
-        ?>
         <div class="wrapper">
-            <header class="transportex-trhead">
-                <!--==================== Header ====================-->
-                <div class="transportex-main-nav" style="display: none;">
-                    <nav class="navbar navbar-default navbar-wp">
-                        <div class="container">
-                            <div class="navbar-header">
-                                <!-- Logo -->
-                                <?php
-                                if (has_custom_logo()) {
-                                    // Display the Custom Logo
-                                    the_custom_logo();
-                                } else { ?>
-                                    <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?>
-                                        <br>
-                                        <span class="site-description"><?php echo  get_bloginfo('description', 'display'); ?></span>
+            <!-- header styles  -->
+            <style>
+                .jc-dot {
+                    background-color: #1c87c9;
+                    -webkit-border-radius: 50%;
+                    border-radius: 50%;
+                    color: #eeeeee;
+                    display: inline-block;
+                    padding: 3px;
+                    text-align: center;
+                    text-decoration: none;
+                }
+
+                @keyframes glowing {
+                    0% {
+                        background-color: #66be00;
+                        box-shadow: 0 0 5px #66be00;
+                    }
+
+                    50% {
+                        background-color: #49e819;
+                        box-shadow: 0 0 20px #49e819;
+                    }
+
+                    100% {
+                        background-color: #66be00;
+                        box-shadow: 0 0 5px #66be00;
+                    }
+                }
+
+                .jc-dot {
+                    animation: glowing 1300ms infinite;
+                }
+
+                .fa-calculator:before {
+                    content: "\f1ec";
+                    color: #74c242;
+                }
+
+                p.phone {
+                    font-size: 18px !important;
+                    margin-top: 12px;
+                    font-weight: 600;
+                }
+
+                p.socials {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                p.socials i {
+                    font-size: 30px;
+                    margin: 3px 5px;
+                }
+
+                .jc-dot_pos1,
+                .jc-dot_pos2 {
+                    position: absolute;
+                }
+
+                .jc-dot_pos1 {
+                    top: 6px;
+                    left: -12px;
+                }
+
+                .jc-dot_pos2 {
+                    top: 5px;
+                    left: 6px;
+                }
+
+                p.socials a {
+                    color: #000;
+                }
+
+                p.calculation a {
+                    color: #66be00;
+                }
+
+                p.calculation a:hover {
+                    color: #66be00;
+                }
+
+                .container-wide {
+                    width: 1380px;
+                    margin: 0 auto;
+                }
+
+                .navbar-wp {
+                    background: #5baa00;
+                }
+
+                .header {
+                    display: flex;
+                    font-size: 15px;
+                    line-height: 16px;
+                    margin-bottom: 15px;
+                }
+
+                .header-right {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding-top: 40px;
+                }
+
+                .header-right__item {
+                    margin-left: 50px;
+                }
+
+                .header-left {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 185px;
+                }
+
+                .fa-telegram {
+                    color: #00a2f2;
+                }
+
+                .fa-whatsapp {
+                    color: #25d231;
+                }
+
+                .fa-vk {
+                    color: #0077fe;
+                }
+
+                .navbar-brand .custom-logo {
+                    padding: 5px 0 10px;
+                }
+
+                .technonikol_1 {
+                    color: #c02235;
+                }
+
+                .technonikol_2 {
+                    color: #54555a;
+                }
+
+                .domrf_1 {
+                    color: #67a511;
+                }
+
+                .domrf_2 {
+                    color: #2f444e;
+                }
+
+                .phone_time {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .online_q,
+                .phone_time {
+                    position: relative;
+                }
+
+                .navbar-wp .navbar-nav>li>a {
+                    color: #fff;
+                    padding: 16px 20px;
+                }
+
+                nav.navbar.navbar-default.navbar-static-top.navbar-wp {
+                    border-radius: 3px;
+                }
+
+                @media (max-width: 1024px) {
+                    .header {
+                        display: none;
+                    }
+
+                    .container-wide {
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+            </style>
+
+            <header>
+
+                <div class="container-wide">
+                    <div class="header">
+                        <div class="header-left">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="https://xn--21-dlchgshg8au1e.xn--p1ai/" class="navbar-brand" rel="home" aria-current="page">
+                                    <img width="153" height="73" src="https://xn--21-dlchgshg8au1e.xn--p1ai/wp-content/uploads/2018/01/logo.png" class="custom-logo" alt="логотип" decoding="async" title="Главная" />
+                                </a>
+                            </div>
+                            <div class="descript">Строительная компания полного цикла в Чувашии</div>
+                        </div>
+
+                        <div class="header-right">
+
+                            <div class="header-right__item">
+                                <div class="wow animated flipInX">
+                                    <p><span class="technonikol_1">DOM</span><span class="technonikol_2">TECHNONIKOL</span> - официальный партнер</p>
+                                    <p><span class="domrf_1">ДОМ.РФ</span> аккредитованный подрядчик</p>
+                                </div>
+                            </div>
+
+                            <div class="header-right__item">
+                                <p class="calculation">
+                                    <i class="fa fa-calculator"></i>
+                                    <a href="#contact_form_pop" class="fancybox" target='_blank'>
+                                        Отправить проект на расчет
                                     </a>
-                                <?php } ?>
-                                <!-- Logo -->
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#wp-navbar"> <span class="sr-only">
-                                        <?php echo _e('Toggle Navigation', 'transportex'); ?></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                                </p>
                             </div>
-                            <!-- /navbar-toggle -->
 
-                            <!-- Navigation -->
-                            <div class="collapse navbar-collapse" id="wp-navbar">
-                                <?php wp_nav_menu(array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right', 'fallback_cb' => 'transportex_custom_navwalker::fallback', 'walker' => new transportex_custom_navwalker())); ?>
+                            <div class="header-right__item online_q">
+                                <i class="jc-dot jc-dot_pos1"></i>
+                                <p>Задайте вопрос ONLINE</p>
+                                <p class="socials">
+                                    <a href="https://telegram.me/+79276683108" target="_blank">
+                                        <i class="fa fa-telegram"></i>
+                                    </a>
+                                    <a href="https://wa.me/+79276683108" target="_blank">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </a>
+                                    <a href="https://vk.com/dvoretskiy21" target="_blank">
+                                        <i class="fa fa-vk"></i>
+                                    </a>
+                                </p>
                             </div>
-                            <!-- /Navigation -->
-                        </div>
-                    </nav>
-                </div>
-            </header>
-            <!-- #masthead -->
 
-
-            <header class="transportex-headwidget">
-                <!--==================== TOP BAR ====================-->
-                <div class="transportex-head-detail hidden-xs hidden-sm" style="display: none;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-12 col-sm-6">
-                                <ul class="info-left">
-                                    <?php
-                                    $transportex_head_info_one = get_theme_mod('transportex_head_info_one', '<a><i class="fa fa-clock-o "></i>Open-Hours:10 am to 7pm</a>', 'transportex');
-                                    $transportex_head_info_two = get_theme_mod('transportex_head_info_two', '<a href="mailto:info@themeicy.com" title="Mail Me"><i class="fa fa-envelope"></i> info@themeicy.com</a>', 'transportex');
-                                    ?>
-                                    <li><?php echo $transportex_head_info_one; ?></li>
-                                    <li><?php echo $transportex_head_info_two; ?></li>
-                                </ul>
+                            <div class="header-right__item phone_time">
+                                <i class="jc-dot jc-dot_pos2"></i>
+                                <p>ПН-ПТ 9:00 - 18:00 </p>
+                                <p>СБ-ВС по записи</p>
+                                <p class="phone">
+                                    <i class="fa fa-phone"></i>
+                                    8 (8352) 38-31-08
+                                </p>
                             </div>
-                            <div class="col-md-6 col-xs-12">
-                                <?php if (has_nav_menu('social')) : ?>
-                                    <nav class="transportex-social-navigation" role="navigation" aria-label="<?php _e('Footer Social Links Menu', 'transportex'); ?>">
-                                        <?php
-                                        wp_nav_menu(array(
-                                            'theme_location' => 'social',
-                                            'menu_class'     => 'social-links-menu info-right',
-                                            'depth'          => 1,
-                                            'link_before'    => '<span class="screen-reader-text">',
-                                            'link_after'     => '</span>' . transportex_include_svg_icons(array('icon' => 'chain')),
-                                        ));
-                                        ?>
-                                    </nav><!-- .social-navigation -->
-                                <?php endif; ?>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="transportex-nav-widget-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-4 text-center-xs">
-                                <div class="navbar-header">
-                                    <!-- Logo -->
-                                    <?php
-                                    if (has_custom_logo()) {
-                                        // Display the Custom Logo
-                                        the_custom_logo();
-                                    } else { ?>
-                                        <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?>
-                                            <br>
-                                            <span class="site-description"><?php echo  get_bloginfo('description', 'display'); ?></span>
-                                        </a>
-                                    <?php } ?>
-                                    <!-- Logo -->
-                                </div>
-                            </div>
-                            <div class="col-md-10 col-sm-8">
-                                <div class="header-widget">
-
-                                    <!-- Строительная компания полного цикла в Чувашии -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box wow animated flipInX">
-                                            <div class="transportex-header-box-info">
-                                                <p>Строительная компания полного цикла в Чувашии</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- DOM TECHNONIKOL - официальный партнер / ДОМ.РФ аккредитованный подрядчик -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box wow animated flipInX">
-                                            <div class="transportex-header-box-info">
-                                                <p>DOM TECHNONIKOL - официальный партнер</p>
-                                                <p>ДОМ.РФ аккредитованный подрядчик</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Отправить проект на расчет -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box">
-                                            <div class="transportex-header-box-info">
-                                                <p class="calculation">
-                                                    <a href="#contact_form_pop" class="fancybox" target='_blank'>
-                                                        Отправить проект на расчет <i class="fa fa-calculator"></i>
-                                                    </a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- animation dot -->
-                                    <style>
-                                        .jc-dot {
-                                            background-color: #1c87c9;
-                                            -webkit-border-radius: 50%;
-                                            border-radius: 50%;
-                                            color: #eeeeee;
-                                            display: inline-block;
-                                            padding: 5px;
-                                            text-align: center;
-                                            text-decoration: none;
-                                        }
-
-                                        @keyframes glowing {
-                                            0% {
-                                                background-color: #66be00;
-                                                box-shadow: 0 0 5px #66be00;
-                                            }
-
-                                            50% {
-                                                background-color: #49e819;
-                                                box-shadow: 0 0 20px #49e819;
-                                            }
-
-                                            100% {
-                                                background-color: #66be00;
-                                                box-shadow: 0 0 5px #66be00;
-                                            }
-                                        }
-
-                                        .jc-dot {
-                                            animation: glowing 1300ms infinite;
-                                        }
-                                    </style>
-
-
-
-                                    <!-- Отправить проект на расчет -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box">
-                                            <div class="transportex-header-box-info">
-                                                <p>Задайте вопрос ONLINE <i class="jc-dot"></i></p>
-                                                <p>
-                                                    <i class="fa fa-telegram" aria-hidden="true"></i>
-                                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                                    <i class="fa fa-vk" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <!-- Аккредитованы ДОМ.РФ - ипотека стала доступной -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box wow animated flipInX">
-                                            <div class="transportex-header-box-icon">
-                                                <?php $transportex_header_widget_one_icon = get_theme_mod('transportex_header_widget_one_icon', __('fa-phone', 'transportex'));
-                                                if (!empty($transportex_header_widget_one_icon)) :
-                                                    echo '<i class="fa ' . $transportex_header_widget_one_icon . '">' . '</i>';
-                                                endif; ?>
-                                            </div>
-                                            <div class="transportex-header-box-info">
-                                                <?php $transportex_header_widget_one_title = get_theme_mod('transportex_header_widget_one_title', __('Call Us:', 'transportex'));
-                                                if (!empty($transportex_header_widget_one_title)) :
-                                                    echo '<h4>' . $transportex_header_widget_one_title . '</h4>';
-                                                endif; ?>
-                                                <?php $transportex_header_widget_one_description = get_theme_mod('transportex_header_widget_one_description', __('1800-6666-8888', 'transportex'));
-                                                if (!empty($transportex_header_widget_one_description)) :
-                                                    echo '<p>' . $transportex_header_widget_one_description . '</p>';
-                                                endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- DOM TECHNONIKOL - официальный партнер -->
-                                    <div class="col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box">
-                                            <div class="transportex-header-box-icon">
-                                                <?php $transportex_header_widget_two_icon = get_theme_mod('transportex_header_widget_two_icon', __('fa-envelope-o', 'transportex'));
-                                                if (!empty($transportex_header_widget_two_icon)) :
-                                                    echo '<i class="fa ' . $transportex_header_widget_two_icon . '">' . '</i>';
-                                                endif; ?>
-                                            </div>
-                                            <div class="transportex-header-box-info">
-                                                <?php $transportex_header_widget_two_title = get_theme_mod('transportex_header_widget_two_title', __('Email Us:', 'transportex'));
-                                                if (!empty($transportex_header_widget_two_title)) :
-                                                    echo '<h4>' . $transportex_header_widget_two_title . '</h4>';
-                                                endif; ?>
-                                                <?php $transportex_header_widget_two_description = get_theme_mod('transportex_header_widget_two_description', __('info@company.com', 'transportex'));
-                                                if (!empty($transportex_header_widget_two_description)) :
-                                                    echo '<p>' . $transportex_header_widget_two_description . '</p>';
-                                                endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- телефон 8 (8352) 38-31-08 -->
-                                    <div class="col-md-2 col-sm-6 col-xs-6 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box">
-                                            <div class="transportex-header-box-icon">
-                                                <?php $transportex_header_widget_three_icon = get_theme_mod('transportex_header_widget_three_icon', __('fa-clock-o', 'transportex'));
-                                                if (!empty($transportex_header_widget_three_icon)) :
-                                                    echo '<i class="fa ' . $transportex_header_widget_three_icon . '">' . '</i>';
-                                                endif; ?>
-                                            </div>
-                                            <div class="transportex-header-box-info">
-                                                <?php $transportex_header_widget_three_title = get_theme_mod('transportex_header_widget_three_title', __('Opening Time:', 'transportex'));
-                                                if (!empty($transportex_header_widget_three_title)) :
-                                                    echo '<h4>' . $transportex_header_widget_three_title . '</h4>';
-                                                endif; ?>
-                                                <?php $transportex_header_widget_three_description = get_theme_mod('transportex_header_widget_three_description', __('08:00 - 18:00', 'transportex'));
-                                                if (!empty($transportex_header_widget_three_description)) :
-                                                    echo '<p>' . $transportex_header_widget_three_description . '</p>';
-                                                endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- ЗАКАЗАТЬ ЗВОНОК -->
-                                    <div class="col-md-2 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                        <div class="transportex-header-box wow animated flipInX text-right">
-                                            <?php $transportex_header_widget_four_label = get_theme_mod('transportex_header_widget_four_label', __('Get a Quote', 'transportex'));
-                                            $transportex_header_widget_four_link = get_theme_mod('transportex_header_widget_four_link', __('#contact_form_pop', 'transportex'));
-                                            $transportex_header_widget_four_target = get_theme_mod('transportex_header_widget_four_target', __('true', 'transportex'));
-
-                                            if (!empty($transportex_header_widget_four_label)) : ?>
-                                                <a href="<?php echo $transportex_header_widget_four_link; ?>" <?php if ($transportex_header_widget_four_target == true) {
-                                                                                                                    echo "target='_blank'";
-                                                                                                                } ?> class="btn btn-theme fancybox"><?php echo $transportex_header_widget_four_label; ?></a>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="container">
+                <div class="container-wide">
                     <div class="transportex-menu-full">
                         <nav class="navbar navbar-default navbar-static-top navbar-wp">
                             <!-- navbar-toggle -->
